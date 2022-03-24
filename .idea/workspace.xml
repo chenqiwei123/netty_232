@@ -5,18 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af3a260e-addb-4672-b4d7-56715d5c184b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/nettySoket/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nettySoket/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nettySoket/netty.iml" beforeDir="false" afterPath="$PROJECT_DIR$/nettySoket/netty.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="22176323-a140-405c-a5b8-0aeabbed36ae" />
   </component>
   <component name="ProjectId" id="25OwvYr1LEgx1XCY6JEerNtp3CG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -45,24 +48,6 @@
     <configuration>C:\Users\RunWsh\AppData\Roaming\Subversion</configuration>
     <supportedVersion>125</supportedVersion>
   </component>
-  <component name="SvnFileUrlMappingImpl">
-    <option name="myMappingRoots">
-      <list>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="D:\面试\930nety" />
-          <option name="myCopyRoot" value="D:\面试\930nety" />
-        </SvnCopyRootSimple>
-      </list>
-    </option>
-    <option name="myMoreRealMappingRoots">
-      <list>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="D:\面试\930nety" />
-          <option name="myCopyRoot" value="D:\面试\930nety" />
-        </SvnCopyRootSimple>
-      </list>
-    </option>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="af3a260e-addb-4672-b4d7-56715d5c184b" name="Changes" comment="" />
@@ -74,7 +59,7 @@
       <workItem from="1645412486858" duration="73000" />
       <workItem from="1645412697917" duration="15000" />
       <workItem from="1646881020587" duration="616000" />
-      <workItem from="1648099453362" duration="218000" />
+      <workItem from="1648099453362" duration="1667000" />
     </task>
     <task id="LOCAL-00001">
       <created>1645411731377</created>
@@ -95,6 +80,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LAST_COMMIT_MESSAGE" value="" />
