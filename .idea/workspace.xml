@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af3a260e-addb-4672-b4d7-56715d5c184b" name="Changes" comment="11" />
+    <list default="true" id="af3a260e-addb-4672-b4d7-56715d5c184b" name="Changes" comment="11">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +44,15 @@
       <recent name="D:\面试\930nety\nettySoket\src\main\resources\static" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="NettyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="netty" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.netty.netty.NettyApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration" cleanupOnStartRun="true">
     <configuration>C:\Users\RunWsh\AppData\Roaming\Subversion</configuration>
@@ -57,7 +69,7 @@
       <workItem from="1645412486858" duration="73000" />
       <workItem from="1645412697917" duration="15000" />
       <workItem from="1646881020587" duration="616000" />
-      <workItem from="1648099453362" duration="2188000" />
+      <workItem from="1648099453362" duration="4040000" />
     </task>
     <task id="LOCAL-00001">
       <created>1645411731377</created>
@@ -80,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648104353800</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="11">
+      <created>1648104883234</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1648104883234</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
