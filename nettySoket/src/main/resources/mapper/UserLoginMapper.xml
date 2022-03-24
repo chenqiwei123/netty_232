@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.netty.netty.dao.UserLoginMapper">
+    <select id="queryAll" resultType="com.example.netty.netty.Entity.DataInfo">
+        select di.NODEID as "nodeId" ,di.TAGID as "tagId",di.DEVICEINFO as "deviceInfo" from baosight.maintree mt left join baosight.datainfo di on mt.nodeid = di.nodeid where mt.status = 1 and di.status = 1
+    </select>
+
+
+<!--    <insert id="add" parameterType="com.example.netty.netty.Entity.TV">-->
+<!--            INSERT INTO baosight.${table}-->
+<!--            VALUES ( TO_DATE(#{DT}, 'YYYY-MM-DD HH:MI:SS'),${VAL},${STATUS} )-->
+<!--    </insert>-->
+
+    <!--批量插入-->
+    <insert id="add" parameterType="com.example.netty.netty.Entity.TV" statementType="STATEMENT">
+            INSERT INTO baosight.${table} ("DT", "VAL", "STATUS")
+            values (
+            TO_DATE(${DT}, 'SYYYY-MM-DD HH24:MI:SS'),
+            ${VAL},
+            ${STATUS}
+            )
+    </insert>
+
+
+    <!--    <select id="queryByName" resultType="com.example.weixin_01.pojo.UserLogin">-->
+<!--        select * from userLogin where username = #{username}-->
+<!--    </select>-->
+
+</mapper>

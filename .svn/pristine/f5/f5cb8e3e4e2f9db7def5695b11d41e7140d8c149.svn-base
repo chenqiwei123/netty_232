@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="IU-212.5080.55">
+    <data-source name="192.168.10.8" uuid="4bfa6466-c8f6-4271-ae70-f90fae335bdd">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="ORACLE" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>baosight</user-name>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>

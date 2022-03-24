@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+    <Sites>
+        <Client>
+            <Site name="B1-3#烧结A侧进口" id="B1" port="8916" nodeId="40025"  baudrate="" protocol ="BaoGang" heart="true"></Site>
+<!--            <Site name="泗塘污水出口" port="4019" id="WS" IP=""  baudrate="" protocol ="BaoGang" heart="true"></Site>-->
+<!--            <Site name="声和热磁" port="4024" id="WS"  IP=""  baudrate="" protocol ="BaoGang" heart="true"></Site>-->
+<!--            <Site name="泗塘污水处理厂进口" port="4018" id="WS" IP=""  baudrate="" protocol ="BaoGang" heart="true"></Site>-->
+<!--            <Site name="吴淞污水处理厂进口" port="4020" id="WS" IP=""  baudrate="" protocol ="BaoGang" heart="true"></Site>-->
+<!--            <Site name="吴淞污水处理厂出口" port="4021" id="WS" IP=""  baudrate="" protocol ="BaoGang" heart="true"></Site>-->
+<!--            <Site name="石洞口污水处理厂进口" port="4022" id="WS" IP=""  baudrate="" protocol ="BaoGang" heart="true"></Site>-->
+<!--            <Site name="石洞口污水处理厂出口" port="4023" id="WS" IP=""  baudrate="" protocol ="BaoGang" heart="true"></Site>-->
+<!--            <Site name="吴淞煤气厂排口" port="4017" id="WS"  IP=""  baudrate="" protocol ="BaoGang" heart="true"></Site>-->
+<!--            <Site name="石洞口第二电厂排口" port="4025" id="WS"  IP=""  baudrate="" protocol ="BaoGang" heart="true"></Site>-->
+<!--            <Site name="弹簧厂排口" port="4038" id="WS"  IP=""  baudrate="" protocol ="BaoGang" heart="true"></Site>-->
+<!--            <Site name="黄海制药排口" port="4037" id="WS" IP=""  baudrate="" protocol ="BaoGang" heart="true"></Site>-->
+<!--            <Site name="连祁河地表水" port="6005" id="WS" IP=""  baudrate="" protocol ="BaoGang" heart="true"></Site>-->
+        </Client>
+        <Server></Server>
+        <Com></Com>
+    </Sites>
+    <Hosts>
+
+    </Hosts>
+    <Protocols>
+        <BaoGang>
+            <Pack Header="##" Ender="\r\n" DataTime="DataTime"></Pack>
+            <Datas>
+                <Data name="ou" value="99"></Data>
+                <Data name="pid" value="98"></Data>
+                <Data name="h2s" value="97"></Data>
+                <Data name="nh3" value="96"></Data>
+                <Data name="no2" value="95"></Data>
+                <Data name="nh3" value="96"></Data>
+
+                <Data name ="01" value="01" text="烟尘"></Data>
+                <Data name ="02" value="02" text="二氧化硫"></Data>
+                <Data name ="03" value="03" text="氮氧化物"></Data>
+                <Data name ="04" value="04" text="一氧化碳"></Data>
+                <Data name ="B02" value="B02" text="标态风量"></Data>
+                <Data name ="S01" value="S01" text="O2含量"></Data>
+                <Data name ="S02" value="S02" text="烟气流速"></Data>
+                <Data name ="S03" value="S03" text="烟气温度"></Data>
+                <Data name ="S05" value="S05" text="烟气湿度"></Data>
+                <Data name ="S08" value="S08" text="烟气压力"></Data>
+                <Data name ="S09" value="S09" text="热态风量"></Data>
+                <Data name ="001" value="03" text="PH"></Data>
+                <Data name ="011" value="14" text="COD"></Data>
+                <Data name ="023" value="17" text="总铬"></Data>
+                <Data name ="028" value="18" text="总镍"></Data>
+                <Data name ="B01" value="15" text="流量"></Data>
+                <Data name ="060" value="07" text="氨氮"></Data>
+                <Data name ="065" value="18" text="总氮"></Data>
+                <Data name ="101" value="09" text="总磷"></Data>
+
+                <Data name="PV01"   value="01" text="PH"></Data>
+                <Data name="CV01"   value="02" text="COD"></Data>
+                <Data name="FV01"   value="03" text="瞬时流量"></Data>
+                <Data name="FV02"   value="04" text="累计流量"></Data>
+                <Data name="w01009" value="01" text="溶解氧"></Data>
+                <Data name="w01010" value="02" text="温度"></Data>
+                <Data name="w01001" value="03" text="PH"></Data>
+                <Data name="w01014" value="04" text="电导率"></Data>
+                <Data name="w01003" value="05" text="浊度"></Data>
+                <Data name="w01019" value="06" text="高锰酸盐指数"></Data>
+                <Data name="w21003" value="07" text="氨氮"></Data>
+                <Data name="w21001" value="08" text="总氮"></Data>
+                <Data name="w21011" value="09" text="总磷"></Data>
+                <Data name="w01020" value="10" text="总有机碳"></Data>
+                <Data name="w01022" value="11" text="流速"></Data>
+                <Data name="w01023" value="12" text="水位"></Data>
+                <Data name="w19900" value="13" text="留样仪剩余瓶数"></Data>
+                <Data name="w01018" value="14" text="COD"></Data>
+                <Data name="w01024" value="15" text="ORP或者瞬时流量"></Data>
+                <Data name="w01025" value="16" text="累计流量"></Data>
+                <Data name="w20116" value="17" text="总铬"></Data>
+                <Data name="w99000" value="18" text="水中有机物"></Data>
+                <Data name="w22000" value="19" text="水中油"></Data>
+                <Data name="wsh004" value="20" text="流量(新)"></Data>
+
+                <Data name ="a21003" value="a21003" text="NO"></Data>
+                <Data name ="a21004" value="a21004" text="NO2"></Data>
+                <Data name ="a21002" value="a21002" text="NOX"></Data>
+                <Data name ="a21026" value="a21026" text="SO2"></Data>
+                <Data name ="a21005" value="a21005" text="CO"></Data>
+                <Data name ="a05024" value="a05024" text="O3"></Data>
+                <Data name ="a24001" value="a24001" text="乙烷"></Data>
+                <Data name ="a24045" value="a24045" text="乙烯"></Data>
+                <Data name ="a24002" value="a24002" text="丙烷"></Data>
+                <Data name ="a05009" value="a05009" text="二氯二氟甲烷"></Data>
+                <Data name ="b24029" value="b24029" text="二氯二溴甲烷"></Data>
+                <Data name ="b24030" value="b24030" text="氟利昂114"></Data>
+                <Data name ="b24031" value="b24031" text="氟利昂113"></Data>
+                <Data name ="b24032" value="b24032" text="2-甲基戊烷2"></Data>
+                <Data name ="a24053" value="a24053" text="丙烯"></Data>
+                <Data name ="a24038" value="a24038" text="异丁烷"></Data>
+                <Data name ="a24037" value="a24037" text="正丁烷"></Data>
+                <Data name ="a24079" value="a24079" text="乙炔"></Data>
+                <Data name ="a24064" value="a24064" text="反式-2-丁烯"></Data>
+                <Data name ="a24099" value="a24099" text="氯甲烷"></Data>
+                <Data name ="a24124" value="a24124" text="1-丁烯"></Data>
+                <Data name ="a24046" value="a24046" text="氯乙烯"></Data>
+                <Data name ="a24063" value="a24063" text="顺式-2-丁烯"></Data>
+                <Data name ="a24125" value="a24125" text="环戊烷"></Data>
+                <Data name ="a05008" value="a05008" text="三氯一氟甲烷"></Data>
+                <Data name ="a24041" value="a24041" text="异戊烷"></Data>
+                <Data name ="a24039" value="a24039" text="正戊烷"></Data>
+                <Data name ="a24078" value="a24078" text="1,3-丁二烯"></Data>
+                <Data name ="a24047" value="a24047" text="1,1-二氯乙烯"></Data>
+                <Data name ="b24010" value="b24010" text="3-甲基-1-丁烯"></Data>
+                <Data name ="a24077" value="a24077" text="反式-2-戊烯"></Data>
+                <Data name ="b24011" value="b24011" text="2-甲基-2-丁烯"></Data>
+                <Data name ="a24074" value="a24074" text="1-戊烯"></Data>
+                <Data name ="a24076" value="a24076" text="顺式-2-戊烯"></Data>
+                <Data name ="b24012" value="b24012" text="2，2-二甲基丁烷"></Data>
+                <Data name ="a24129" value="a24129" text="甲基环戊烷"></Data>
+                <Data name ="a24003" value="a24003" text="二氯甲烷"></Data>
+                <Data name ="a24127" value="a24127" text="2,3-二甲基丁烷"></Data>
+                <Data name ="a24011" value="a24011" text="2-甲基戊烷"></Data>
+                <Data name ="a24117" value="a24117" text="3-甲基戊烷"></Data>
+                <Data name ="a24042" value="a24042" text="正己烷"></Data>
+                <Data name ="a05013" value="a05013" text="三氯三氟乙烷"></Data>
+                <Data name ="a24061" value="a24061" text="异戊二烯"></Data>
+                <Data name ="b24014" value="b24014" text="2-甲基-1-戊烯"></Data>
+                <Data name ="b24015" value="b24015" text="4-甲基-1-戊烯"></Data>
+                <Data name ="b24016" value="b24016" text="反-2-已烯"></Data>
+                <Data name ="a24131" value="a24131" text="1-己烯"></Data>
+                <Data name ="a24126" value="a24126" text="2,2-二甲基丁烷"></Data>
+                <Data name ="a24016" value="a24016" text="1,1-二氯乙烷"></Data>
+                <Data name ="a24111" value="a24111" text="顺式-1,2-二氯乙烯"></Data>
+                <Data name ="b24017" value="b24017" text="正己烷"></Data>
+                <Data name ="a24004" value="a24004" text="三氯甲烷"></Data>
+                <Data name ="a24017" value="a24017" text="1,2-二氯乙烷"></Data>
+                <Data name ="a24018" value="a24018" text="1,1,1-三氯乙烷"></Data>
+                <Data name ="a25002" value="a25002" text="苯"></Data>
+                <Data name ="a24005" value="a24005" text="四氯甲烷"></Data>
+                <Data name ="a24036" value="a24036" text="环己烷"></Data>
+                <Data name ="b24018" value="b24018" text="2-3-二甲基戊烷+2-甲基乙烷"></Data>
+                <Data name ="a24120" value="a24120" text="3-甲基己烷"></Data>
+                <Data name ="a24027" value="a24027" text="1,2-二氯丙烷"></Data>
+                <Data name ="a24049" value="a24049" text="三氯乙烯"></Data>
+                <Data name ="a24012" value="a24012" text="2,2,4-三甲基戊烷"></Data>
+                <Data name ="a24043" value="a24043" text="正庚烷"></Data>
+                <Data name ="a24112" value="a24112" text="反式-1,3-二氯丙烯"></Data>
+                <Data name ="a24084" value="a24084" text="甲基环己烷"></Data>
+                <Data name ="a24054" value="a24054" text="1,3-二氯丙烯"></Data>
+                <Data name ="a24019" value="a24019" text="1,1,2-三氯乙烷"></Data>
+                <Data name ="a24121" value="a24121" text="2,3,4-三甲基戊烷"></Data>
+                <Data name ="a25003" value="a25003" text="甲苯"></Data>
+                <Data name ="a24122" value="a24122" text="2-甲基庚烷"></Data>
+                <Data name ="a24123" value="a24123" text="3-甲基庚烷"></Data>
+                <Data name ="a24034" value="a24034" text="1,2-二溴乙烷"></Data>
+                <Data name ="a24070" value="a24070" text="正辛烷"></Data>
+                <Data name ="a24050" value="a24050" text="四氯乙烯"></Data>
+                <Data name ="a25010" value="a25010" text="氯苯"></Data>
+                <Data name ="a25004" value="a25004" text="乙苯"></Data>
+                <Data name ="b24019" value="b24019" text="间+对二甲苯"></Data>
+                <Data name ="a25038" value="a25038" text="乙烯基苯"></Data>
+                <Data name ="a25006" value="a25006" text="邻二甲苯"></Data>
+                <Data name ="a24044" value="a24044" text="正壬烷"></Data>
+                <Data name ="a25034" value="a25034" text="异丙苯"></Data>
+                <Data name ="b24020" value="b24020" text="A-蒎烯"></Data>
+                <Data name ="a25033" value="a25033" text="正丙苯"></Data>
+                <Data name ="a25087" value="a25087" text="间-甲乙苯"></Data>
+                <Data name ="a02514" value="a02514" text="对-甲乙苯"></Data>
+                <Data name ="a25021" value="a25021" text="1,3,5-三甲基苯"></Data>
+                <Data name ="a25088" value="a25088" text="邻-甲乙苯"></Data>
+                <Data name ="b24021" value="b24021" text="B-蒎烯"></Data>
+                <Data name ="a25019" value="a25019" text="1,2,4-三甲基苯"></Data>
+                <Data name ="a25012" value="a25012" text="1,3-二氯苯"></Data>
+                <Data name ="a24068" value="a24068" text="正癸烷"></Data>
+                <Data name ="a25013" value="a25013" text="1,4-二氯苯"></Data>
+                <Data name ="a25020" value="a25020" text="1,2,3-三甲基苯"></Data>
+                <Data name ="a25011" value="a25011" text="1,2-二氯苯"></Data>
+                <Data name ="b24022" value="b24022" text="苧烯"></Data>
+                <Data name ="b24023" value="b24023" text="间二乙苯"></Data>
+                <Data name ="b24024" value="b24024" text="对二乙苯"></Data>
+                <Data name ="a25090" value="a25090" text="十一烷"></Data>
+                <Data name ="a25015" value="a25015" text="1,2,4-三氯苯"></Data>
+                <Data name ="a25059" value="a25059" text="萘"></Data>
+                <Data name ="b24025" value="b24025" text="正十二烷"></Data>
+                <Data name ="a24113" value="a24113" text="六氯-1,3-丁二烯"></Data>
+            </Datas>
+            <DataType>
+                <实时值 name ="Rtd" value="00"></实时值>
+                <平均值 name ="Avg" value="01"></平均值>
+                <最小值 name ="Min" value="02"></最小值>
+                <最大值 name ="Max" value="03"></最大值>
+                <累计值 name ="Cou" value="04"></累计值>
+                <折算平均值 name ="ZsAvg" value="11"></折算平均值>
+                <折算最小值 name ="ZsMin" value="12"></折算最小值>
+                <折算最大值 name ="ZsMax" value="13"></折算最大值>
+            </DataType>
+            <CommandType>
+                <五分钟 name="2082" value="05"></五分钟>
+                <五分钟 name="2081" value="05"></五分钟>
+                <一分钟 name="2051" value="01"></一分钟>
+                <一分钟 name="2011" value="01"></一分钟>
+                <一小时 name="2061" value="60"></一小时>
+                <半小时 name ="6100" value="31"></半小时>
+                <半小时 name ="6200" value="31"></半小时>
+                <一小时 name="6101" value="61"></一小时>
+                <一小时 name="6201" value="61"></一小时>
+                <一天 name="6102" value="24"></一天>
+                <一天 name="6202" value="24"></一天>
+                <一小时 name="2061" value="60"></一小时>
+                <半小时 name="2071" value="30"></半小时>
+            </CommandType>
+            <SiteType>
+                <站点类型 name ="32" value ="WS"></站点类型>
+                <站点类型 name ="22" value ="DQ"></站点类型>
+                <站点类型 name ="31" value ="DQ"></站点类型>
+                <站点类型 name ="91" value ="Sys"></站点类型>
+            </SiteType>
+            <ErrorCode>
+                <ecod1 ecodname="XYH" fxcode='01' ecodtype="status" ecoddesc="Less than ##% Data"/>
+                <ecod2 ecodname="P" fxcode='02' ecodtype="status" ecoddesc="Power Fail"/>
+                <ecod3 ecodname="D" fxcode='03' ecodtype="status" ecoddesc="Disabled"/>
+                <ecod4 ecodname="T" fxcode='04' ecodtype="status" ecoddesc="Out of Control"/>
+                <ecod5 ecodname="F" fxcode='05' ecodtype="status" ecoddesc="Boiler off line"/>
+                <ecod6 ecodname="B" fxcode='06' ecodtype="flags" ecoddesc="Bad Status"/>
+                <ecod7 ecodname="C" fxcode='07' ecodtype="flags" ecoddesc="Calibration"/>
+                <ecod8 ecodname="M" fxcode='08' ecodtype="flags" ecoddesc="Maintenance"/>
+                <ecod9 ecodname="O" fxcode='09' ecodtype="flags" ecoddesc="Analog Overrange"/>
+                <ecod10 ecodname="U" fxcode='10' ecodtype="flags" ecoddesc="Analog Underrange"/>
+                <ecod11 ecodname="A" fxcode='11' ecodtype="flags" ecoddesc="Arithmetic Error"/>
+                <ecod12 ecodname="+" fxcode='12' ecodtype="flags" ecoddesc="Maximum"/>
+                <ecod13 ecodname="-" fxcode='13' ecodtype="flags" ecoddesc="Minimum"/>
+                <ecod14 ecodname="R" fxcode='14' ecodtype="flags" ecoddesc="Rate of Change"/>
+                <ecod15 ecodname="H" fxcode='15' ecodtype="flags" ecoddesc="High High Alarm"/>
+                <ecod16 ecodname="L" fxcode='16' ecodtype="flags" ecoddesc="Low Low Alarm"/>
+                <ecod17 ecodname="h" fxcode='17' ecodtype="flags" ecoddesc="High Alarm"/>
+                <ecod18 ecodname="l" fxcode='18' ecodtype="flags" ecoddesc="Low Alarm"/>
+                <ecod19 ecodname="J" fxcode='19' ecodtype="flags" ecoddesc="High Rate of Change"/>
+                <ecod20 ecodname="j" fxcode='20' ecodtype="flags" ecoddesc="Low Rate of Change"/>
+                <ecod21 ecodname="V" fxcode='21' ecodtype="flags" ecoddesc="DIS #1 Obs"/>
+                <ecod22 ecodname="W" fxcode='22' ecodtype="flags" ecoddesc="DIS #2 Obs"/>
+                <ecod23 ecodname="X" fxcode='23' ecodtype="flags" ecoddesc="DIS #3 Obs"/>
+                <ecod24 ecodname="Y" fxcode='24' ecodtype="flags" ecoddesc="DIS #4 Obs"/>
+                <ecod25 ecodname="Z" fxcode='25' ecodtype="flags" ecoddesc="DIS #5 Obs"/>
+                <ecod26 ecodname="DYH" fxcode='26' ecodtype="flags" ecoddesc="NONE"/>
+                <ecod ecodname="p" fxcode="0102" ecodtype="status" ecoddesc="p（小写）出现电源故障 ，有效数据采集率小于75%" />
+                <ecod ecodname="b" fxcode="0106" ecodtype="status" ecoddesc="b（小写）监测仪器发生故障，有效数据采集率小于75%" />
+                <ecod ecodname="d" fxcode="0107" ecodtype="status" ecoddesc="d（小写）数据采集通道关闭，有效数据采集率小于75%" />
+                <ecod ecodname="c" fxcode="0115" ecodtype="status" ecoddesc="c（小写）检测仪处于校准状态，有效数据采集率小于75%" />
+                <ecod ecodname="t" fxcode="0104" ecodtype="status" ecoddesc="Out of Control" />
+                <ecod ecodname="f" fxcode="0105" ecodtype="status" ecoddesc="Boiler off line" />
+                <ecod ecodname="m" fxcode="0108" ecodtype="flags" ecoddesc="Maintenance" />
+                <ecod ecodname="o" fxcode="0109" ecodtype="flags" ecoddesc="Analog Overrange" />
+                <ecod ecodname="u" fxcode="0110" ecodtype="flags" ecoddesc="Analog Underrange" />
+                <ecod ecodname="a" fxcode="0111" ecodtype="flags" ecoddesc="Arithmetic Error" />
+                <ecod ecodname="r" fxcode="0114" ecodtype="flags" ecoddesc="Rate of Change" />
+                <ecod ecodname="v" fxcode="0121" ecodtype="flags" ecoddesc="DIS #1 Obs" />
+                <ecod ecodname="w" fxcode="0122" ecodtype="flags" ecoddesc="DIS #2 Obs" />
+                <ecod ecodname="x" fxcode="0123" ecodtype="flags" ecoddesc="DIS #3 Obs" />
+                <ecod ecodname="y" fxcode="0124" ecodtype="flags" ecoddesc="DIS #4 Obs" />
+                <ecod ecodname="z" fxcode="0125" ecodtype="flags" ecoddesc="DIS #5 Obs" />
+            </ErrorCode>
+        </BaoGang>
+        <BaoShanNew>
+            <Pack Header="##" Ender="\r\n" DataTime="DataTime"></Pack>
+            <Datas>
+                <!--A:DQ8916:891605a2100301 SiteType,port,CommandType,datavalue,DataType-->
+                <Data name ="a21003" value="a21003" text="NO"></Data>
+                <Data name ="a21004" value="a21004" text="NO2"></Data>
+                <Data name ="a21002" value="a21002" text="NOX"></Data>
+                <Data name ="a21026" value="a21026" text="SO2"></Data>
+                <Data name ="a21005" value="a21005" text="CO"></Data>
+                <Data name ="a05024" value="a05024" text="O3"></Data>
+                <Data name ="a24001" value="a24001" text="乙烷"></Data>
+                <Data name ="a24045" value="a24045" text="乙烯"></Data>
+                <Data name ="a24002" value="a24002" text="丙烷"></Data>
+                <Data name ="a05009" value="a05009" text="二氯二氟甲烷"></Data>
+                <Data name ="a24053" value="a24053" text="丙烯"></Data>
+                <Data name ="a24038" value="a24038" text="异丁烷"></Data>
+                <Data name ="a24037" value="a24037" text="正丁烷"></Data>
+                <Data name ="a24079" value="a24079" text="乙炔"></Data>
+                <Data name ="a24064" value="a24064" text="反式-2-丁烯"></Data>
+                <Data name ="a24099" value="a24099" text="氯甲烷"></Data>
+                <Data name ="a24124" value="a24124" text="1-丁烯"></Data>
+                <Data name ="a24046" value="a24046" text="氯乙烯"></Data>
+                <Data name ="a24063" value="a24063" text="顺式-2-丁烯"></Data>
+                <Data name ="a24125" value="a24125" text="环戊烷"></Data>
+                <Data name ="a05008" value="a05008" text="三氯一氟甲烷"></Data>
+                <Data name ="a24041" value="a24041" text="异戊烷"></Data>
+                <Data name ="a24039" value="a24039" text="正戊烷"></Data>
+                <Data name ="a24078" value="a24078" text="1,3-丁二烯"></Data>
+                <Data name ="a24047" value="a24047" text="1,1-二氯乙烯"></Data>
+                <Data name ="b24010" value="b24010" text="3-甲基-1-丁烯"></Data>
+                <Data name ="a24077" value="a24077" text="反式-2-戊烯"></Data>
+                <Data name ="b24011" value="b24011" text="2-甲基-2-丁烯"></Data>
+                <Data name ="a24074" value="a24074" text="1-戊烯"></Data>
+                <Data name ="a24076" value="a24076" text="顺式-2-戊烯"></Data>
+                <Data name ="b24012" value="b24012" text="2，2-二甲基丁烷"></Data>
+                <Data name ="a24129" value="a24129" text="甲基环戊烷"></Data>
+                <Data name ="a24003" value="a24003" text="二氯甲烷"></Data>
+                <Data name ="a24127" value="a24127" text="2,3-二甲基丁烷"></Data>
+                <Data name ="a24011" value="a24011" text="2-甲基戊烷"></Data>
+                <Data name ="a24117" value="a24117" text="3-甲基戊烷"></Data>
+                <Data name ="a24042" value="a24042" text="正己烷"></Data>
+                <Data name ="a05013" value="a05013" text="三氯三氟乙烷"></Data>
+                <Data name ="a24061" value="a24061" text="异戊二烯"></Data>
+                <Data name ="b24014" value="b24014" text="2-甲基-1-戊烯"></Data>
+                <Data name ="b24015" value="b24015" text="4-甲基-1-戊烯"></Data>
+                <Data name ="b24016" value="b24016" text="反-2-已烯"></Data>
+                <Data name ="a24131" value="a24131" text="1-己烯"></Data>
+                <Data name ="a24126" value="a24126" text="2,2-二甲基丁烷"></Data>
+                <Data name ="a24016" value="a24016" text="1,1-二氯乙烷"></Data>
+                <Data name ="a24111" value="a24111" text="顺式-1,2-二氯乙烯"></Data>
+                <Data name ="b24017" value="b24017" text="正己烷"></Data>
+                <Data name ="a24004" value="a24004" text="三氯甲烷"></Data>
+                <Data name ="a24017" value="a24017" text="1,2-二氯乙烷"></Data>
+                <Data name ="a24018" value="a24018" text="1,1,1-三氯乙烷"></Data>
+                <Data name ="a25002" value="a25002" text="苯"></Data>
+                <Data name ="a24005" value="a24005" text="四氯甲烷"></Data>
+                <Data name ="a24036" value="a24036" text="环己烷"></Data>
+                <Data name ="b24018" value="b24018" text="2-3-二甲基戊烷+2-甲基乙烷"></Data>
+                <Data name ="a24120" value="a24120" text="3-甲基己烷"></Data>
+                <Data name ="a24027" value="a24027" text="1,2-二氯丙烷"></Data>
+                <Data name ="a24049" value="a24049" text="三氯乙烯"></Data>
+                <Data name ="a24012" value="a24012" text="2,2,4-三甲基戊烷"></Data>
+                <Data name ="a24043" value="a24043" text="正庚烷"></Data>
+                <Data name ="a24112" value="a24112" text="反式-1,3-二氯丙烯"></Data>
+                <Data name ="a24084" value="a24084" text="甲基环己烷"></Data>
+                <Data name ="a24054" value="a24054" text="1,3-二氯丙烯"></Data>
+                <Data name ="a24019" value="a24019" text="1,1,2-三氯乙烷"></Data>
+                <Data name ="a24121" value="a24121" text="2,3,4-三甲基戊烷"></Data>
+                <Data name ="a25003" value="a25003" text="甲苯"></Data>
+                <Data name ="a24122" value="a24122" text="2-甲基庚烷"></Data>
+                <Data name ="a24123" value="a24123" text="3-甲基庚烷"></Data>
+                <Data name ="a24034" value="a24034" text="1,2-二溴乙烷"></Data>
+                <Data name ="a24070" value="a24070" text="正辛烷"></Data>
+                <Data name ="a24050" value="a24050" text="四氯乙烯"></Data>
+                <Data name ="a25010" value="a25010" text="氯苯"></Data>
+                <Data name ="a25004" value="a25004" text="乙苯"></Data>
+                <Data name ="b24019" value="b24019" text="间+对二甲苯"></Data>
+                <Data name ="a25038" value="a25038" text="乙烯基苯"></Data>
+                <Data name ="a25006" value="a25006" text="邻二甲苯"></Data>
+                <Data name ="a24044" value="a24044" text="正壬烷"></Data>
+                <Data name ="a25034" value="a25034" text="异丙苯"></Data>
+                <Data name ="b24020" value="b24020" text="A-蒎烯"></Data>
+                <Data name ="a25033" value="a25033" text="正丙苯"></Data>
+                <Data name ="a25087" value="a25087" text="间-甲乙苯"></Data>
+                <Data name ="a02514" value="a02514" text="对-甲乙苯"></Data>
+                <Data name ="a25021" value="a25021" text="1,3,5-三甲基苯"></Data>
+                <Data name ="a25088" value="a25088" text="邻-甲乙苯"></Data>
+                <Data name ="b24021" value="b24021" text="B-蒎烯"></Data>
+                <Data name ="a25019" value="a25019" text="1,2,4-三甲基苯"></Data>
+                <Data name ="a25012" value="a25012" text="1,3-二氯苯"></Data>
+                <Data name ="a24068" value="a24068" text="正癸烷"></Data>
+                <Data name ="a25013" value="a25013" text="1,4-二氯苯"></Data>
+                <Data name ="a25020" value="a25020" text="1,2,3-三甲基苯"></Data>
+                <Data name ="a25011" value="a25011" text="1,2-二氯苯"></Data>
+                <Data name ="b24022" value="b24022" text="苧烯"></Data>
+                <Data name ="b24023" value="b24023" text="间二乙苯"></Data>
+                <Data name ="b24024" value="b24024" text="对二乙苯"></Data>
+                <Data name ="a25090" value="a25090" text="十一烷"></Data>
+                <Data name ="a25015" value="a25015" text="1,2,4-三氯苯"></Data>
+                <Data name ="a25059" value="a25059" text="萘"></Data>
+                <Data name ="b24025" value="b24025" text="正十二烷"></Data>
+                <Data name ="a24113" value="a24113" text="六氯-1,3-丁二烯"></Data>
+
+            </Datas>
+            <DataType>
+                <实时值 name ="Rtd" value="00"></实时值>
+                <平均值 name ="Avg" value="01"></平均值>
+                <最小值 name ="Min" value="02"></最小值>
+                <最大值 name ="Max" value="03"></最大值>
+                <累计值 name ="Cou" value="04"></累计值>
+                <折算平均值 name ="ZsAvg" value="11"></折算平均值>
+                <折算最小值 name ="ZsMin" value="12"></折算最小值>
+                <折算最大值 name ="ZsMax" value="13"></折算最大值>
+            </DataType>
+            <CommandType>
+                <五分钟 name="2082" value="05"></五分钟>
+                <一分钟 name="2051" value="01"></一分钟>
+                <一小时 name="2061" value="60"></一小时>
+
+                <半小时 name ="6100" value="31"></半小时>
+                <半小时 name ="6200" value="31"></半小时>
+                <一小时 name="6101" value="61"></一小时>
+                <一小时 name="6201" value="61"></一小时>
+                <一天 name="6102" value="24"></一天>
+                <一天 name="6202" value="24"></一天>
+            </CommandType>
+            <SiteType>
+                <站点类型 name ="32" value ="WS"></站点类型>
+                <站点类型 name ="22" value ="DQ"></站点类型>
+                <站点类型 name ="31" value ="DQ"></站点类型>
+                <站点类型 name ="91" value ="Sys"></站点类型>
+            </SiteType>
+            <ErrorCode>
+                <ecod1 ecodname="XYH" fxcode='01' ecodtype="status" ecoddesc="Less than ##% Data"/>
+                <ecod2 ecodname="P" fxcode='02' ecodtype="status" ecoddesc="Power Fail"/>
+                <ecod3 ecodname="D" fxcode='03' ecodtype="status" ecoddesc="Disabled"/>
+                <ecod4 ecodname="T" fxcode='04' ecodtype="status" ecoddesc="Out of Control"/>
+                <ecod5 ecodname="F" fxcode='05' ecodtype="status" ecoddesc="Boiler off line"/>
+                <ecod6 ecodname="B" fxcode='06' ecodtype="flags" ecoddesc="Bad Status"/>
+                <ecod7 ecodname="C" fxcode='07' ecodtype="flags" ecoddesc="Calibration"/>
+                <ecod8 ecodname="M" fxcode='08' ecodtype="flags" ecoddesc="Maintenance"/>
+                <ecod9 ecodname="O" fxcode='09' ecodtype="flags" ecoddesc="Analog Overrange"/>
+                <ecod10 ecodname="U" fxcode='10' ecodtype="flags" ecoddesc="Analog Underrange"/>
+                <ecod11 ecodname="A" fxcode='11' ecodtype="flags" ecoddesc="Arithmetic Error"/>
+                <ecod12 ecodname="+" fxcode='12' ecodtype="flags" ecoddesc="Maximum"/>
+                <ecod13 ecodname="-" fxcode='13' ecodtype="flags" ecoddesc="Minimum"/>
+                <ecod14 ecodname="R" fxcode='14' ecodtype="flags" ecoddesc="Rate of Change"/>
+                <ecod15 ecodname="H" fxcode='15' ecodtype="flags" ecoddesc="High High Alarm"/>
+                <ecod16 ecodname="L" fxcode='16' ecodtype="flags" ecoddesc="Low Low Alarm"/>
+                <ecod17 ecodname="h" fxcode='17' ecodtype="flags" ecoddesc="High Alarm"/>
+                <ecod18 ecodname="l" fxcode='18' ecodtype="flags" ecoddesc="Low Alarm"/>
+                <ecod19 ecodname="J" fxcode='19' ecodtype="flags" ecoddesc="High Rate of Change"/>
+                <ecod20 ecodname="j" fxcode='20' ecodtype="flags" ecoddesc="Low Rate of Change"/>
+                <ecod21 ecodname="V" fxcode='21' ecodtype="flags" ecoddesc="DIS #1 Obs"/>
+                <ecod22 ecodname="W" fxcode='22' ecodtype="flags" ecoddesc="DIS #2 Obs"/>
+                <ecod23 ecodname="X" fxcode='23' ecodtype="flags" ecoddesc="DIS #3 Obs"/>
+                <ecod24 ecodname="Y" fxcode='24' ecodtype="flags" ecoddesc="DIS #4 Obs"/>
+                <ecod25 ecodname="Z" fxcode='25' ecodtype="flags" ecoddesc="DIS #5 Obs"/>
+                <ecod26 ecodname="DYH" fxcode='26' ecodtype="flags" ecoddesc="NONE"/>
+            </ErrorCode>
+        </BaoShanNew>
+
+        <BaoShanOU>
+            <Pack Header="vector" Ender="rqbox"  ></Pack>
+            <Datas>
+                <Data name="ou" value="99"  sitetype="DQ" timetype="01"   datatype="01" index="3"></Data>
+                <Data name="pid" value="98"  sitetype="DQ" timetype="01"   datatype="01" index="2"></Data>
+                <Data name="h2s" value="97"  sitetype="DQ" timetype="01"   datatype="01" index="1"></Data>
+                <Data name="nh3" value="96"  sitetype="DQ" timetype="01"   datatype="01" index="0"></Data>
+            </Datas>
+        </BaoShanOU>
+        <BaoShanOU2>
+            <Pack Header="PacketVersion" Ender="rqbox"  ></Pack>
+            <Datas>
+                <Data name="ou" value="99"  sitetype="DQ" timetype="01"   datatype="01" index="0"></Data>
+                <Data name="no2" value="95"  sitetype="DQ" timetype="01"   datatype="01" index="1"></Data>
+                <Data name="h2s" value="97"  sitetype="DQ" timetype="01"   datatype="01" index="2"></Data>
+                <Data name="nh3" value="96"  sitetype="DQ" timetype="01"   datatype="01" index="3"></Data>
+                <Data name="pid" value="98"  sitetype="DQ" timetype="01"   datatype="01" index="4"></Data>
+            </Datas>
+        </BaoShanOU2>
+        <WS> <!--212协议-->
+            <!--因子转义到webservices编码-->
+            <!--暂时只处理实时的分钟数据，5分钟/小时/日统计数据不发-->
+            <WS_Code>
+                <!--WS中不解析的因子就注释掉，原来的平台之配置了5分钟数据，延用原来的配置-->
+                <WS BH="PV01" DES="PH" WEBID="01" EID="0" DID="0"/>
+                <WS BH="CV01" DES="COD" WEBID="02" EID="0" DID="0"/>
+                <WS BH="FV01" DES="瞬时流量" WEBID="03" EID="0" DID="0"/>
+                <WS BH="FV02" DES="累计流量" WEBID="04" EID="0" DID="0"/>
+                <WS BH="w01009" DES="溶解氧" WEBID="01" EID="0" DID="0"/>
+                <WS BH="w01010" DES="温度" WEBID="02" EID="0" DID="0"/>
+                <WS BH="w01001" DES="PH" WEBID="03" EID="0" DID="0"/>
+                <WS BH="w01014" DES="电导率" WEBID="04" EID="0" DID="0"/>
+                <WS BH="w01003" DES="浊度" WEBID="05" EID="0" DID="0"/>
+                <WS BH="w01019" DES="高锰酸盐指数" WEBID="06" EID="0" DID="0"/>
+                <WS BH="w21003" DES="氨氮" WEBID="07" EID="0" DID="0"/>
+                <WS BH="w21001" DES="总氮" WEBID="08" EID="0" DID="0"/>
+                <WS BH="w21011" DES="总磷" WEBID="09" EID="0" DID="0"/>
+                <WS BH="w01020" DES="总有机碳" WEBID="10" EID="0" DID="0"/>
+                <WS BH="w01022" DES="流速" WEBID="11" EID="0" DID="0"/>
+                <WS BH="w01023" DES="水位" WEBID="12" EID="0" DID="0"/>
+                <WS BH="w19900" DES="留样仪剩余瓶数" WEBID="13" EID="0" DID="0"/>
+                <WS BH="w01018" DES="COD" WEBID="14" EID="0" DID="0"/>
+                <WS BH="w01024" DES="ORP或者瞬时流量" WEBID="15" EID="0" DID="0"/>
+                <WS BH="w01025" DES="累计流量" WEBID="16" EID="0" DID="0"/>
+                <WS BH="w20116" DES="总铬" WEBID="17" EID="0" DID="0"/>
+                <WS BH="w99000" DES="水中有机物" WEBID="18" EID="0" DID="0"/>
+                <WS BH="w22000" DES="水中油" WEBID="19" EID="0" DID="0"/>
+                <WS BH="wsh004" DES="流量(新)" WEBID="20" EID="0" DID="0"/>
+
+                <!--212水质代码定义-->
+                <WS BH="001" DES="PH" WEBID="03" EID="0" DID="0"/>
+                <WS BH="011" DES="COD" WEBID="14" EID="0" DID="0"/>
+                <WS BH="023" DES="总铬" WEBID="17" EID="0" DID="0"/>
+                <WS BH="028" DES="总镍" WEBID="18" EID="0" DID="0"/>
+                <WS BH="B01" DES="流量" WEBID="15" EID="0" DID="0"/>
+                <WS BH="060" DES="氨氮" WEBID="07" EID="0" DID="0"/>
+                <WS BH="065" DES="总氮" WEBID="18" EID="0" DID="0"/>
+                <WS BH="101" DES="总磷" WEBID="09" EID="0" DID="0"/>
+                <!--WS BH="015" DES="TOC" WEBID="" EID="0" DID="0"/-->
+            </WS_Code>
+            <KQ_Code>
+                <!--webid="112233" 11:因子号;22:数值01,最大值02,最小值03,平均值04;33:1分钟02,实时01.-->
+                <!--a01022开始编号协议里没有，属于站房参数-->
+                <!--服务器的DATAINFO绑的数值是0101实时值，暂时帮0101-->
+                <!--上海市空气平台使用自定义协议 因子的编码和212协议相同，这部分因子代码是复用的-->
+                <!--EID和DID作为存入EOP117数据库用的因子转义字符，存入数据表中使用。-->
+                <KQ BH="a01005" DES="CO" WEBID="01" EID="11" DID="3"/>
+                <KQ BH="a21003" DES="NO" WEBID="02" EID="11" DID="3"/>
+                <KQ BH="a21004" DES="NO2" WEBID="03" EID="11" DID="3"/>
+                <KQ BH="a21002" DES="NOX " WEBID="04" EID="11" DID="3"/>
+                <KQ BH="a05024" DES="O3" WEBID="05" EID="11" DID="3"/>
+                <KQ BH="a34005" DES="PM10" WEBID="06" EID="11" DID="3"/>
+                <KQ BH="a21026" DES="SO2 " WEBID="07" EID="11" DID="3"/>
+                <KQ BH="a34004" DES="PM2.5" WEBID="08" EID="11" DID="3"/>
+                <KQ BH="a01008" DES="风向" WEBID="09" EID="11" DID="3"/>
+                <KQ BH="a01007" DES="风速" WEBID="10" EID="11" DID="3"/>
+                <KQ BH="a01001" DES="大气温度" WEBID="11" EID="11" DID="3"/>
+                <KQ BH="a01002" DES="大气湿度" WEBID="12" EID="11" DID="3"/>
+                <KQ BH="a01006" DES="大气压力" WEBID="13" EID="11" DID="3"/>
+                <KQ BH="af0001" DES="安防信号" WEBID="14" EID="11" DID="3"/>
+                <KQ BH="a34002" DES="PM10" WEBID="15" EID="11" DID="3"/>
+                <KQ BH="a05031" DES="THC" WEBID="16" EID="11" DID="3"/>
+                <KQ BH="a05002" DES="CH4" WEBID="17" EID="11" DID="3"/>
+                <KQ BH="a05032" DES="NMHC" WEBID="18" EID="11" DID="3"/>
+                <KQ BH="a06001" DES="雨量" WEBID="19" EID="11" DID="3"/>
+                <KQ BH="a21005" DES="CO" WEBID="20" EID="11" DID="3"/>
+                <KQ BH="a01031" DES="站房温度" WEBID="21" EID="11" DID="3"/>
+                <KQ BH="a01031" DES="站房湿度" WEBID="22" EID="11" DID="3"/>
+            </KQ_Code>
+            <ZS_Code>
+                <!--ZS BH="a01026" DES="站房温度" datatype="000.0" WS_Unit="摄氏度" WEBID="170101"-->
+            </ZS_Code>
+            <!--宝山区烟气接入，使用212协议中定义的2位和3位的因子代-->
+            <YQ_Code>
+                <YQ BH="01" DES="烟尘" WEBID="01" EID="11" DID="3"/>
+                <YQ BH="02" DES="二氧化硫" WEBID="02" EID="11" DID="3"/>
+                <YQ BH="03" DES="氮氧化物" WEBID="03" EID="11" DID="3"/>
+                <YQ BH="S01" DES="O2" WEBID="04" EID="11" DID="3"/>
+                <YQ BH="S02" DES="流速" WEBID="05" EID="11" DID="3"/>
+                <YQ BH="S03" DES="温度" WEBID="06" EID="11" DID="3"/>
+                <YQ BH="S08" DES="压力" WEBID="07" EID="11" DID="3"/>
+                <YQ BH="S09" DES="热态流量" WEBID="08" EID="11" DID="3"/>
+                <!--
+                  <YQ BH="S01" DES="O2含量" datatype="000.0" WS_Unit="%" WEBID="170402" EID="" DID=""/>
+                <YQ BH="S02" DES="烟气流速" datatype="00000.00" WS_Unit="m3/h" WEBID="170402" EID="" DID=""/>
+                <YQ BH="S03" DES="烟气温度" datatype="000.0" WS_Unit="摄氏度" WEBID="170402" EID="" DID=""/>
+                <YQ BH="S04" DES="烟气动压" datatype="0000.00" WS_Unit="MPa" WEBID="170402" EID="" DID=""/>
+                <YQ BH="S05" DES="烟气湿度" datatype="000.0" WS_Unit="%" WEBID="170402" EID="" DID=""/>
+                <YQ BH="S06" DES="制冷温度" datatype="000.0" WS_Unit="摄氏度" WEBID="170402" EID="" DID=""/>
+                <YQ BH="S07" DES="烟道截面积" datatype="0000.00" WS_Unit="M2" WEBID="170402" EID="" DID=""/>
+                <YQ BH="S08" DES="烟气压力" datatype="0000.00" WS_Unit="MPa" WEBID="170402" EID="" DID=""/>
+                <YQ BH="01" DES="烟尘" datatype="00000.00" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+                <YQ BH="02" DES="二氧化硫" datatype="00000.00" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+                <YQ BH="03" DES="氮氧化物" datatype="00000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+                <YQ BH="04" DES="一氧化碳" datatype="00.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+                <YQ BH="05" DES="硫化氢" datatype="000.00" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+                <YQ BH="06" DES="氟化物" datatype="00.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+                <YQ BH="07" DES="氰化物" datatype="000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+                <YQ BH="08" DES="氯化氢" datatype="0000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+                <YQ BH="09" DES="沥青烟" datatype="0000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+                <YQ BH="10" DES="氨" datatype="0000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="11" DES="氯气" datatype="000.0" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="12" DES="二硫化碳" datatype="0000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="13" DES="硫醇" datatype="0000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+                <YQ BH="14" DES="硫酸雾" datatype="0000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="15" DES="铬酸雾" datatype="00.0000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="16" DES="苯系物" datatype="0000.00" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="17" DES="甲苯" datatype="0000.00" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+                <YQ BH="18" DES="二甲苯" datatype="0000.00" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="19" DES="甲醇" datatype="000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="20" DES="苯并芘" datatype="000.000000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="21" DES="苯胺类" datatype="0000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+                <YQ BH="22" DES="硝基苯类" datatype="000.0000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="23" DES="氯苯类" datatype="0000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="24" DES="光气" datatype="000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="25" DES="碳氢化合物" datatype="00000.00" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+                <YQ BH="26" DES="乙醛" datatype="000.0000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="27" DES="酚类" datatype="000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="28" DES="甲醇" datatype="00000.00" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="29" DES="氯乙烯" datatype="0000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+                <YQ BH="30" DES="二氧化碳" datatype="0000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="31" DES="汞及其化合物" datatype="0000.0000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="32" DES="铅及其化合物" datatype="00.0000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="33" DES="镉及其化合物" datatype="000.0000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+              <YQ BH="34" DES="锡及其化合物" datatype="0000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="35" DES="镍及其化合物" datatype="000.000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="36" DES="铍及其化合物" datatype="0000.0000" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+            <YQ BH="37" DES="林格曼黑度" datatype="0" WS_Unit="mg/m3" WEBID="170402" EID="" DID=""/>
+              <YQ BH="99" DES="其他其污染物" datatype="0" WS_Unit="mg/m3" WEBID="" EID="" DID=""/>
+            -->
+            </YQ_Code>
+            <!--字段的翻译,需要的字段翻译成WEBSERVICE的报文信息-->
+            <ZD_Code>
+                <ZD ZDName="SystemTime" ZDDesc="系统时间" ZFJ="0-9" LENGTH="14" PS="YYYYMMDDHHMMSS"/>
+                <ZD ZDName="QN" ZDDesc="请求编号" ZFJ="" LENGTH="" PS=""/>
+                <ZD ZDName="QnRtn" ZDDesc="请求回应代码" ZFJ="0-9" LENGTH="3" PS=""/>
+                <ZD ZDName="ExeRtn" ZDDesc="执行结果回应代码" ZFJ="0-9" LENGTH="3" PS=""/>
+                <ZD ZDName="RtdInterval" ZDDesc="实时采样数据上报间隔" ZFJ="0-9" LENGTH="4" PS="秒为单位"/>
+                <ZD ZDName="-Rtd" ZDDesc="污染物实时采样数据" ZFJ="0-9" LENGTH="14.2" PS=""/>
+                <ZD ZDName="-Min" ZDDesc="污染物指定时间内最小值" ZFJ="0-9" LENGTH="14.2" PS=""/>
+                <ZD ZDName="-Avg" ZDDesc="污染物指定时间内平均值" ZFJ="0-9" LENGTH="14.2" PS=""/>
+                <ZD ZDName="-Max" ZDDesc="污染物指定时间内最大值" ZFJ="0-9" LENGTH="14.2" PS=""/>
+                <ZD ZDName="-ZsRtd" ZDDesc="污染物实时采样折算数据" ZFJ="0-9" LENGTH="14.2" PS=""/>
+                <ZD ZDName="-ZsMin" ZDDesc="污染物指定时间内最小折算值" ZFJ="0-9" LENGTH="14.2" PS=""/>
+                <ZD ZDName="-ZsAvg" ZDDesc="污染物指定时间内平均折算值" ZFJ="0-9" LENGTH="14.2" PS=""/>
+                <ZD ZDName="-ZsMax" ZDDesc="污染物指定时间内最大折算值" ZFJ="0-9" LENGTH="14.2" PS=""/>
+                <!--Flag:对于污染源（P：电源故障、F：排放源停运、C：校验、M：维护、T：超测上限、D：故障、S：设定值、N：正常）
+                对于空气检测站（0：校准数据、1：气象参数、2：异常数据、3 正常数据）-->
+                <ZD ZDName="-Flag" ZDDesc="监测污染物实时数据标记" ZFJ="C1" LENGTH="14.2" PS=""/>
+                <ZD ZDName="-Cou" ZDDesc="污染物指定时间内累计值" ZFJ="0-9" LENGTH="14.2" PS=""/>
+                <!--RS: 0：设备关，1：设备开-->
+                <ZD ZDName="-RS" ZDDesc="设备运行状态的实时采样值" ZFJ="0-9" LENGTH="1" PS=""/>
+                <ZD ZDName="-RT" ZDDesc="设备指定时间内的运行时间" ZFJ="0-9" LENGTH="14.2" PS="0-24"/>
+                <ZD ZDName="-Ala" ZDDesc="污染物报警期间内采样值" ZFJ="0-9" LENGTH="14.2" PS=""/>
+                <ZD ZDName="-UpValue" ZDDesc="污染物报警上限值" ZFJ="0-9" LENGTH="14.2" PS=""/>
+                <ZD ZDName="-LowValue" ZDDesc="污染物报警下限值" ZFJ="0-9" LENGTH="14.2" PS=""/>
+                <ZD ZDName="-Data" ZDDesc="噪声监测日历史数据" ZFJ="0-9" LENGTH="14.2" PS=""/>
+                <ZD ZDName="-DayData" ZDDesc="噪声昼间历史数据" ZFJ="0-9" LENGTH="14.2" PS=""/>
+                <ZD ZDName="-NightData" ZDDesc="噪声夜间历史数据" ZFJ="0-9" LENGTH="14.2" PS=""/>
+                <ZD ZDName="AlarmTime" ZDDesc="超标开始时间" ZFJ="0-9" LENGTH="14" PS="YYYYMMDDHHMMSS"/>
+                <!--AlarmType 1：超标,0：恢复正常-->
+                <ZD ZDName="AlarmType" ZDDesc="报警事件类型" ZFJ="0-9" LENGTH="1" PS=""/>
+                <ZD ZDName="ReportTarget" ZDDesc="上位机地址标识" ZFJ="0-9" LENGTH="20" PS=""/>
+                <ZD ZDName="PolId" ZDDesc="污染物的编号" ZFJ="0-9" LENGTH="C3" PS=""/>
+                <ZD ZDName="BeginTime" ZDDesc="开始时间" ZFJ="0-9" LENGTH="14" PS="YYYYMMDDHHMMSS"/>
+                <ZD ZDName="EndTime" ZDDesc="截止时间" ZFJ="0-9" LENGTH="14" PS="YYYYMMDDHHMMSS"/>
+                <ZD ZDName="DataTime" ZDDesc="数据时间信息" ZFJ="0-9" LENGTH="14" PS="YYYYMMDDHHMMSS"/>
+                <ZD ZDName="ReportTime" ZDDesc="数据上报时间信息" ZFJ="0-9" LENGTH="4" PS="YYYYMMDDHHMMSS"/>
+                <ZD ZDName="DayStdValue" ZDDesc="噪声白天报警上限值" ZFJ="0-9" LENGTH="14" PS=""/>
+                <ZD ZDName="NightStdValue" ZDDesc="噪声夜晚报警上限值" ZFJ="0-9" LENGTH="14" PS=""/>
+                <!--目前只用两个Bit;000000DA
+                A:数据是否应答，1应答，0不应答
+                D：是否有数据序号；Bit：1-数据包中包含包序号和总包号两部分,0-数据包中不包含包序号和总包号两部分-->
+                <ZD ZDName="Flag" ZDDesc="通讯标志" ZFJ="0-9" LENGTH="3" PS=""/>
+                <ZD ZDName="PNO" ZDDesc="包序号" ZFJ="0-9" LENGTH="4" PS="0001-9999"/>
+                <ZD ZDName="PNUM" ZDDesc="总包号" ZFJ="0-9" LENGTH="4" PS="0001-9999"/>
+                <ZD ZDName="PW" ZDDesc="访问密码" ZFJ="0-9,A-Z,a-z" LENGTH="C6" PS="123456"/>
+                <ZD ZDName="OverTime" ZDDesc="超时时间" ZFJ="0-9" LENGTH="5" PS="单位:秒 取值范围达到24小时"/>
+                <ZD ZDName="ReCount" ZDDesc="重发次数" ZFJ="0-9" LENGTH="2" PS="取值范围为0-99"/>
+                <ZD ZDName="WarnTime" ZDDesc="超限报警时间(单位:秒)" ZFJ="0-9" LENGTH="5" PS="取值范围达到24小时"/>
+                <ZD ZDName="CTime" ZDDesc="设备采样时间周期" ZFJ="0-9" LENGTH="2" PS="取值范围达到24小时"/>
+            </ZD_Code>
+        </WS>
+    </Protocols>
+</Root>
+
+
+        <!--
+        <Site name="殷泰纸业废水总排口" IP="" port="5401" baudrate="" protocol ="BaoShan" heart="false"></Site>
+        <Site name="新环保局空气测试" IP="" port="8908" baudrate="" protocol ="BaoShan" heart="false"></Site>
+        -->

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="600">
+    <title>Index</title>
+    <link rel="stylesheet" href="../static/CSS/css/font-awesome.min.css">
+    <style>
+        .style-table {
+            border-collapse: collapse;
+            margin: 50px auto;
+            font-size: 0.9em;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .style-table thead tr {
+            background-color: #0398dd;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .style-table th,
+        .style-table td {
+            padding: 12px 15px;
+        }
+
+        .style-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .style-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .style-table tbody tr:last-of-type {
+            border-bottom: 2px solid #0398dd;
+        }
+
+        .style-table tbody tr.active-row {
+            font-weight: bold;
+            color: #0398dd;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .login-item a {
+            width: 354px;
+            height: 50px;
+            background: #00897B;
+            display: block;
+            font-size: 16px;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+        }
+
+        .login-item input {
+            width: 350px;
+            height: 40px;
+        }
+
+        #loginBox {
+            display: none;
+        }
+
+        #showPointInfo {
+            display: none;
+        }
+
+        .login-item {
+            margin-top: 15px;
+            margin-left: 20px;
+        }
+
+        table td, table th {
+            border: 1px solid #cad9ea;
+            color: #666;
+            height: 30px;
+        }
+
+        table thead th {
+            background-color: #CCE8EB;
+            width: 100px;
+        }
+
+        table tr:nth-child(odd) {
+            background: #fff;
+        }
+
+        table tr:nth-child(even) {
+            background: #F5FAFA;
+        }
+
+        .login-button { /* 按钮美化 */
+            width: 170px; /* 宽度 */
+            height: 40px; /* 高度 */
+            border-width: 0px; /* 边框宽度 */
+            border-radius: 3px; /* 边框半径 */
+            background: #1E90FF; /* 背景颜色 */
+            cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+            outline: none; /* 不显示轮廓线 */
+            font-family: Microsoft YaHei; /* 设置字体 */
+            color: white; /* 字体颜色 */
+            font-size: 17px; /* 字体大小 */
+            margin: 10px;
+        }
+
+        .login-button:hover { /* 鼠标移入按钮范围时改变颜色 */
+            background: #5599FF;
+        }
+
+        .search-box {
+            position: absolute; /* 不确定容器的大小时使用  ,margin-lift  right都是知道容器大小时使用的  */
+            top: 3.5%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* 以上三个设定容器在页面上居中对齐 */
+            background: white;
+            height: 40px;
+            /* 给容器一个高度 */
+            border-radius: 40px; /* 允许元素添加圆角边框  这里表示添加半径为40像素的圆角*/
+            padding: 15px;
+            /* 相当于是内衬 有15像素 */
+        }
+
+        .search-box:hover > .search-btn {
+            background: white;
+        }
+
+        .search-box:hover > .search-txt { /* 给悬停元素加样式 设置悬停展开后的样式 */
+            width: 230px;
+            padding: 0 10px;
+        }
+
+        .search-btn {
+            color: #8e44ad;
+            float: right; /* 设置元素浮动 浮动向右 */
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #2f3640;
+            display: flex; /*没有这一条下面的两条也就无效了*/
+            justify-content: center; /*管上下居中*/
+            align-items: center; /*管左右居中*/
+            /*  这三个就是让这个放大镜图标居中*/
+            transition: 0.4s;
+            /* 设置在某一段时间（0.4s）里改变css样式 */
+            text-decoration: none;
+            /* 让文本或内容无样式  这里是去掉了放大镜这个图标的下划线 应为设置连接后自动带下划线 */
+        }
+
+        .search-txt {
+            border: none;
+            background: none;
+            outline: none; /* 点击搜索时无轮廓出现 */
+            /* 以上三条 去掉搜索框的 边框 背景 以及轮廓线 */
+            float: left; /* 这里也设浮动不过是向左 这样就可以和搜索图标在同一水平线了 */
+            padding: 0;
+            color: white;
+            font-size: 20px; /* 字体大小 */
+            transition: 0.04s;
+            line-height: 40px; /* 之前容器高度给了40像素 这里行高也给40像素 文字就可以居中显示了 */
+            width: 0px; /* 把这个文本框宽度设置为0像素 在鼠标未悬停时就不显示了 从而达到变化效果 */
+        }
+    </style>
+    <script src="../static/JS/Jquery.js"></script>
+    <script src="../static/JS/layer.js"></script>
+</head>
+<body>
+<button class="login-button" id="refresh">
+    手动刷新
+</button>
+<button class="login-button" onclick="ShowAddPoint()">
+    添加监测点
+</button>
+<button class="login-button" onclick="SeePointInfo()">
+    监测站点状态
+</button>
+<button class="login-button" onclick="Page()">
+    首页
+</button>
+<div id="loginBox">
+    <div class="login-item"><input type="text" id="InputUsername" placeholder="请输入监测站点的端口"/></div>
+    <div class="login-item"><input type="text" id="InputUserPwd" placeholder="请输入监测站点的名称"/></div>
+    <div class="login-item"><a href="javascript:;" onclick="Login()">确认添加</a></div>
+</div>
+<div id="showPointInfo">
+    <table class="style-table">
+        <thead>
+        <tr style="text-align: center;">
+            <th>编号</th>
+            <th>站点名称</th>
+            <th>协议</th>
+            <th>端口</th>
+            <th>状态</th>
+            <th>通信方式</th>
+            <th>最新正常通信时间</th>
+            <th>线程ID号</th>
+        </tr>
+        </thead>
+        <tbody th:each="userEntry,userStat:${mapPointInfo}">
+        <tr th:each="s:${userStat.current.getValue()}">
+            <td th:text="${s['id']}"></td>
+            <td th:text="${s['name']}"></td>
+            <td th:text="${s['Protocol']}"></td>
+            <td th:text="${s['port']}"></td>
+            <td th:text="${s['status']}"></td>
+            <td th:text="${s['way']}"></td>
+            <td th:text="${s['time']}"></td>
+            <td th:text="${s['ThreadID']}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="search-box"><!-- 先写一个容器出来 -->
+
+    <input class="search-txt" typ="text" id="ReceivePortName" placeholder="ReceivePortName to search"
+           style="color: darkgreen;">
+    <!-- 这里是另外一个容器  容器是可以嵌套的 它被嵌套在上面这个容器里 是输入文本用的 -->
+    <a class="search-btn" href="#" onclick="ReceivePortName()">
+        <!-- 这里定义一个连接  是空连接   想使用别的连接 你可以把#替换成你想用的连接 -->
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <!-- 这个玩意是我从fontawesome里找来的素材  具体怎么来的自己去fontawesome看看就知道了 -->
+    </a>
+</div>
+<table style="width:100%;">
+    <tr>
+        <th>Time</th>
+        <th>ReceivePort</th>
+        <th>ReceivePortName</th>
+        <th>ReceiveMessage</th>
+        <th>UploadData</th>
+    </tr>
+    <div th:each="userEntry,userStat:${infoList}">
+        <tr th:each="ss:${userStat.current.getValue()}">
+            <td th:text="${ss['time']}"></td>
+            <td th:text="${ss['ip']}"></td>
+            <td th:text="${ss['name']}"></td>
+            <td th:text="${ss['msg']}"></td>
+            <td th:text="${ss['UploadData']}"></td>
+        </tr>
+    </div>
+
+</table>
+</body>
+</html>
+
+<script>
+    $("#refresh").click(function () {
+        window.location.reload();
+    });
+    var ShowAddPoint_layer;
+    var SeePointInfo_layer;
+    function ShowAddPoint() {
+        ShowAddPoint_layer=layer.open({
+            type: 1,
+            title: "添加监测站点",
+            area: ["395px", "300px"],
+            content: $("#loginBox"),
+        });
+    }
+
+    function SeePointInfo() {
+        SeePointInfo_layer=layer.open({
+            type: 1,
+            title: "监测站点信息",
+            area: ["1200px", "600px"],
+            content: $("#showPointInfo"),
+        });
+    }
+
+    function Login() {
+        var InputUsername = $("#InputUsername").val();
+        var InputUserPwd = $("#InputUserPwd").val();
+        if (InputUsername.length == 0 || InputUserPwd.length == 0) {
+            alert("输入的端口号或端口名称不能为空!");
+            return;
+        }
+        if(!isNumber(InputUsername)){
+            alert("输入的端口号为非数字!!!");
+            return;
+        }
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "/AddPointInfo",
+            data: {
+                port: InputUsername,
+                name: InputUserPwd
+            }, //提交的数据
+            success: function (result) {
+                console.log(result);       //打印服务端返回的数据(调试用)
+                layer.close(ShowAddPoint_layer);
+                window.location.reload();
+            },
+            error: function () {
+                layer.close(ShowAddPoint_layer);
+                window.location.reload();
+            }
+        });
+    }
+
+    function isNumber(val){
+        var regPos = /^[0-9]+.?[0-9]*/; //判断是否是数字。
+        for (let i = 0; i < val.length; i++) {
+            if(!regPos.test(val[i]) ){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+    function ReceivePortName() {
+        var ReceivePortName = $("#ReceivePortName").val();
+        if (ReceivePortName.length == 0) {
+            return;
+        } else {
+            window.location.href = "/index?ReceivePortName=" + ReceivePortName
+        }
+    }
+
+    function Page() {
+        window.location.href = "/index";
+    }
+</script>

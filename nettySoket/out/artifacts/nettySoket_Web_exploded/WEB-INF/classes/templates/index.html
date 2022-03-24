@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="2">
+    <title>Index</title>
+</head>
+<body>
+<table style="width:100%">
+    <tr>
+        <th>时间</th>
+        <th>ip端口</th>
+        <th>发送内容</th>
+    </tr>
+    <tr th:each="info:${infos}">
+        <td th:text="${info.time}"></td>
+        <td th:text="${info.ip}"></td>
+        <td th:text="${info.content}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
+<script src="../static/JS/Jquery.js"></script>
+<script>
+//setTimeout(function(){location.reload()},1000); //指定1秒刷新一次
+</script>

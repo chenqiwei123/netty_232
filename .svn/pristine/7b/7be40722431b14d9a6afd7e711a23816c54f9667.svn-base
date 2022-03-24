@@ -1,0 +1,178 @@
+package com.example.netty.netty.Client;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.example.netty.netty.Controller.HelloController;
+import com.example.netty.netty.Entity.*;
+import com.example.netty.netty.service.Impl.UserServiceImpl;
+import org.apache.cxf.endpoint.Client;
+import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+import org.apache.cxf.jaxws.endpoint.dynamic.JaxWsDynamicClientFactory;
+import org.apache.http.client.methods.HttpPost;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
+
+import javax.xml.namespace.QName;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+public class WsTest {
+    public static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static boolean check = false;
+    public static JaxWsDynamicClientFactory dcf1=null;//发送老系统建立动态工厂
+    public static JaxWsDynamicClientFactory dcf2=null;//发送老系统建立动态工厂
+    public static Client client1=null;//老系统客服端
+    public static Client client2=null;//老系统客服端
+
+//废弃
+//    public static String Client2Service(String Method, String objects, String obj, String id) {
+//        //采用动态工厂方式 不需要指定服务接口
+//        JaxWsDynamicClientFactory dcf = JaxWsDynamicClientFactory.newInstance();
+//        Client client = dcf.createClient("http://192.168.1.102:84/UserServiceImpl/dao?wsdl");
+//        Object[] objects1;
+//        // invoke("方法名",参数1,参数2,参数3....);
+//        try {
+//            objects1 = client.invoke(Method, objects, obj, id);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            client.destroy();
+//            return "";
+//        }
+//        client.destroy();
+//        return objects1[0].toString();
+//    }
+    public static void SaveClientConnect(){//保存客户端连接
+
+    }
+
+    public static List<Object[]> cccClient2Service(String Method, List<String> objects) {
+        if (dcf1==null||client1==null){
+            dcf1= JaxWsDynamicClientFactory.newInstance();
+            client1 = dcf1.createClient("http://192.168.10.1/CDataCenter/CDataCenter.asmx?wsdl");
+        }
+        //采用动态工厂方式 不需要指定服务接口
+        List<Object[]> objects1 = new ArrayList<>();
+        // invoke("方法名",参数1,参数2,参数3....);
+        try {
+            for (int j=0; j<objects.size();j++) {
+                objects1.add(client1.invoke(Method, objects.get(j)));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            //client1.destroy();
+            return new ArrayList();
+        }
+        //client1.destroy();
+        return objects1;
+    }
+
+    public static String PackinDB2Service(String Method, String sourcepack,String sitename,String callbackpack) {
+        //采用动态工厂方式 不需要指定服务接口
+        if (dcf2==null||client2==null){
+            dcf2= JaxWsDynamicClientFactory.newInstance();
+            client2 = dcf2.createClient("http://192.168.10.1/Cems_KQ_YU/Service.asmx?wsdl");
+        }
+        Object[] objects1;
+        // invoke("方法名",参数1,参数2,参数3....);
+        try {
+            objects1 = client2.invoke(Method, sourcepack,sitename,callbackpack);
+        } catch (Exception e) {
+            e.printStackTrace();
+            //client1.destroy();
+            return "";
+        }
+        //client1.destroy();
+        return objects1[0].toString();
+    }
+
+    public static String Client2Service(String Method, String objects, String port) {
+        //采用动态工厂方式 不需要指定服务接口
+        JaxWsDynamicClientFactory dcf = JaxWsDynamicClientFactory.newInstance();
+        Client client = dcf.createClient("http://192.168.1.102:84/UserServiceImpl/dao?wsdl");
+        Object[] objects1;
+        // invoke("方法名",参数1,参数2,参数3....);
+        try {
+            objects1 = client.invoke(Method, objects, port);
+        } catch (Exception e) {
+            e.printStackTrace();
+            client.destroy();
+            return "";
+        }
+        client.destroy();
+        return objects1[0].toString();
+    }
+
+    public static String Client2ServiceCheck(String Method, String objects) {
+        //采用动态工厂方式 不需要指定服务接口
+        JaxWsDynamicClientFactory dcf = JaxWsDynamicClientFactory.newInstance();
+        Client client = dcf.createClient("http://192.168.1.102:84/UserServiceImpl/dao?wsdl");
+        Object[] objects1;
+        // invoke("方法名",参数1,参数2,参数3....);
+        try {
+            objects1 = client.invoke(Method, objects);
+        } catch (Exception e) {
+            e.printStackTrace();
+            client.destroy();
+            return "";
+        }
+        client.destroy();
+        return objects1[0].toString();
+    }
+
+
+    public static String Client2Service(String Method, int port) {
+        //采用动态工厂方式 不需要指定服务接口
+        JaxWsDynamicClientFactory dcf = JaxWsDynamicClientFactory.newInstance();
+        Client client = dcf
+                .createClient("http://192.168.1.102:84/UserServiceImpl/dao?wsdl");
+        Object[] objects1;
+        // invoke("方法名",参数1,参数2,参数3....);
+        try {
+            objects1 = client.invoke(Method, port);
+        } catch (Exception e) {
+            e.printStackTrace();
+            client.destroy();
+            return "";
+        }
+        client.destroy();
+        return objects1[0].toString();
+    }
+
+
+    public static List<TV> DownWriteValueOver(String Method, String port) {
+        //采用动态工厂方式 不需要指定服务接口
+        JaxWsDynamicClientFactory dcf = JaxWsDynamicClientFactory.newInstance();
+        Client client = dcf
+                .createClient("http://192.168.1.102:84/UserServiceImpl/dao?wsdl");
+        Object[] objects1;
+        // invoke("方法名",参数1,参数2,参数3....);
+        try {
+            objects1 = client.invoke(Method, port);
+        } catch (Exception e) {
+            e.printStackTrace();
+            client.destroy();
+            return null;
+        }
+        List<TV> tvs = JSON.parseArray(String.valueOf(objects1[0]), TV.class);
+        client.destroy();
+        return tvs;
+    }
+
+    public static <T> List<T> castList(Object obj, Class<T> clazz)
+    {
+        List<T> result = new ArrayList<T>();
+        if(obj instanceof List<?>)
+        {
+            for (Object o : (List<?>) obj)
+            {
+                result.add(clazz.cast(o));
+            }
+            return result;
+        }
+        return null;
+    }
+
+}

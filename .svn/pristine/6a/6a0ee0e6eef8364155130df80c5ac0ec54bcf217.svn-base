@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .btn{
+            border-radius: 5px;
+            margin: 3px -5px;
+            width: 90px;
+            height: 30px;
+        }
+        .content{
+            margin: 0px auto;
+            display: none;
+        }
+        .btn.active{
+            background-color:grey;
+            box-shadow:inset 0 3px 5px rgba(0,0,0,.125)
+        }
+        .content.show{
+            display:block;
+        }
+        .bs{
+            margin: 20px 0px;
+        }
+    </style>
+</head>
+<body style="background-color: ghostwhite;">
+<div style="height: 200px;width:290px;overflow-y: scroll;">
+    <button class="btn active">详细信息</button>
+
+    <button class="btn">业务项</button>
+
+    <button class="btn">监测数据</button>
+
+<div class="content show">
+    <div class="bs">详细信息:<span th:text="${name}"></span></div>
+    <div class="bs">测点位置:<span th:text="${address}"></span></div>
+    <div class="bs">测定类型:<span th:text="${type}"></span></div>
+</div>
+<div class="content">
+    <a th:href="${pointInfo}" target="_blank">站点信息</a></br>
+    <a th:href="${pointHistoryInfo}" target="_blank">查看历史数据</a></br>
+    <a th:href="${HistoryCompareInfo}" target="_blank">历史同期比较</a></br>
+    <a th:href="${StationFactorComparison}" target="_blank">站内因子比较</a></br>
+    <a th:href="${SameFactorComparison}" target="_blank">同因子比较</a>
+</div>
+
+<div class="content">
+    <a th:href="${jcData}" target="_blank">查看监测数据</a>
+</div>
+</div>
+<script src="../static/JS/Jquery.js"></script>
+<script>　　　　　//获取页面的每个按钮
+var btns = document.getElementsByClassName("btn")　　　　　//获取内容盒子
+var contents = document.getElementsByClassName("content")
+
+//遍历每个按钮为其添加点击事件
+for(var i=0;i<btns.length;i++){
+    btns[i].index = i;
+    btns[i].onclick = function(){　　　　　　　　　　//对当前点击的按钮赋予active类名及显示当前按钮对应的内容
+        for(var j=0;j<btns.length;j++){
+            btns[j].className = btns[j].className.replace(' active', '').trim();
+            contents[j].className = contents[j].className.replace(' show', '').trim();
+        }
+        this.className = this.className + ' active';
+        contents[this.index].className = contents[this.index].className + ' show';
+    };
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+2021-10-29 11:23:00.429 [main] INFO  com.example.netty.netty.NettyApplication - Starting NettyApplication using Java 1.8.0_291 on DESKTOP-RM4JGV6 with PID 9368 (D:\baoxin\project\930nety\nettySoket\target\classes started by RunWsh in D:\baoxin\project\930nety\nettySoket)
+2021-10-29 11:23:00.430 [main] DEBUG com.example.netty.netty.NettyApplication - Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-10-29 11:23:00.430 [main] INFO  com.example.netty.netty.NettyApplication - The following profiles are active: prd
+2021-10-29 11:23:01.811 [main] WARN  org.thymeleaf.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-10-29 11:23:01.940 [main] INFO  com.example.netty.netty.NettyApplication - Started NettyApplication in 1.908 seconds (JVM running for 2.588)
+2021-10-29 11:23:01.943 [main] DEBUG com.example.netty.netty.NettyApplication - debug Log!!!!!!
+2021-10-29 11:23:01.943 [main] INFO  com.example.netty.netty.NettyApplication - info Log!!!!!!
+2021-10-29 11:23:01.943 [main] WARN  com.example.netty.netty.NettyApplication - warn Log!!!!!!
+2021-10-29 11:23:01.943 [main] ERROR com.example.netty.netty.NettyApplication - error Log!!!!!!

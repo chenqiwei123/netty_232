@@ -1,0 +1,77 @@
+server:
+  port: 8888
+
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.example.netty.netty.Entity  #所有entity别名所在包
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.netty.netty.Entity
+#  type-aliases-package: com.example.netty.netty.Entity
+#mybatis-plus配置
+#mybatis-plus:
+#  #配置Mapper映射文件
+#  mapper-locations: classpath:/mapper/*.xml
+#  # 配置Mybatis数据返回类型别名（默认别名为类名）
+#  type-aliases-package: com.example.netty.netty.Entity.DataInfo
+#  configuration:
+#    # 自动驼峰命名
+#    map-underscore-to-camel-case: false
+#
+##配置控制台打印日志Debug
+#logging:
+#  level:
+#    com.jd.mapper: debug
+#
+#logging.level.org.springframework.boot.autoconfigure: error
+#baosight
+#  ip: 192.168.1.102        发布webservice的接口ip
+#  serverIP: 192.168.1.102  系统启动的ip
+#  serverPORT: 8080         系统启动的端口
+#  port: 8899               发布webservice的接口端口
+#  configxml: .\\src\\main\\java\\com\\example\\netty\\netty\\Socket\\Parsing\\config.xml    读取xml文件的路径
+#redis:
+#  ip: 192.168.10.13        服务器上缓存redis的ip
+#  port: 6379               服务器上缓存redis的端口
+baosight:
+  ip: 10.246.8.231
+  serverIP: 10.246.8.231
+  serverPORT: 82
+  port: 83
+  configxml: /opt/TongWeb/baosightFile/baosight/config.xml
+redis:
+  ip: 10.246.8.231
+  port: 6379
+
+logging:
+  config: classpath:logback-spring.xml
+  file:
+    name: SpringBoot.log
+  level:
+    com:
+      example:
+        netty:
+          netty: info
+spring:
+  mvc:
+    static-path-pattern: /static/**
+  banner: location=banner.txt
+  profiles:
+    active: dev
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html
+    cache: false
+  application:
+    name: test-11
+  datasource:
+    driver-class-name: dm.jdbc.driver.DmDriver
+#    url: jdbc:dm://10.246.8.56/DAMENG
+    url: jdbc:dm://172.16.47.128/DAMENG
+    username: IPLAT62
+    password: Iplat62@2021
+#    ConnectionTestQuery: SELECT 1
+

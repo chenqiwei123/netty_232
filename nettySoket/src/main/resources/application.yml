@@ -1,0 +1,59 @@
+server:
+  port: 85
+
+
+mybatis:
+  # spring boot集成mybatis的方式打印sql
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+baosight:
+  ip: 127.0.0.1
+  serverIP: 127.0.0.1
+  serverPORT: 85
+  port: 85
+  configxml: D:\baoxin\project\930nety\nettySoket\src\main\resources\static\configDQ.xml
+
+#  IsReadSql: true
+  IsReadSql: false
+#  configxml: C:\Documents and Settings\Administrator\桌面\java_Socket\config.xml
+  Center:
+    sendPostUrl: http://10.246.8.31/ENVP/service/S_DC_02
+
+
+
+
+spring:
+  application:
+    name: demo-cdd
+#  datasource:
+#    driver-class-name: dm.jdbc.driver.DmDriver
+##    url: jdbc:dm://10.246.8.56/DAMENG
+#    url: jdbc:dm://172.16.47.128/DAMENG
+#    username: IPLAT62
+#    password: Iplat62@2021
+  mvc:
+    static-path-pattern: /static/**
+  banner: location=banner.txt
+  profiles:
+    active: prd
+#    active: dev
+  thymeleaf:
+    prefix: classpath:/templates/
+    check-template-location: true
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html
+    cache: false
+
+
+#  jpa:
+#    show-sql: true
+#  datasource:
+#    driver-class-name: oracle.jdbc.OracleDriver
+#    url: jdbc:oracle:thin:@192.168.10.8:1521:orcl
+#    username: baosight
+#    password: Baosight_123456
+##    ConnectionTestQuery: SELECT 1
+

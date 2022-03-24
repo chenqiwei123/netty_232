@@ -1,0 +1,405 @@
+package com.example.netty.netty.Controller;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.example.netty.netty.Entity.*;
+import com.example.netty.netty.Socket.Parsing.CRC16;
+import com.example.netty.netty.Socket.Parsing.PackDealImpl;
+import com.example.netty.netty.Socket.SimpleServer;
+//import com.example.netty.netty.service.VTService;
+import com.example.netty.netty.Socket.ThreadOpenPort;
+import org.apache.cxf.endpoint.Client;
+import org.apache.cxf.jaxws.endpoint.dynamic.JaxWsDynamicClientFactory;
+import org.apache.http.client.methods.HttpPost;
+import org.dom4j.Document;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.annotation.PostConstruct;
+import java.io.File;
+import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+import static com.example.netty.netty.Socket.Parsing.PackDealImpl.*;
+import static com.example.netty.netty.Socket.SimpleServer.mapPointInfo;
+
+@Controller
+@EnableScheduling
+@Component
+public class HelloController {
+    public static Map<String,List<Map>> infoListShow=new HashMap<>();
+    public static String SearchPointInfo="";//Controller ReceivePortName to search
+    public static String sendAjaxInfo="";
+    @Autowired
+    ConfigBeanValue configBeanValue;
+    //    @Autowired
+//    VTService vtService;
+    @Autowired
+    RedisConnect redisConnect;
+
+    @Autowired
+    public static StringRedisTemplate redisClient;
+    private static ApplicationContext applicationContext;
+    public static String senPost ="";
+    public static List<Info> list = new ArrayList<>();
+    public static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static List<DataInfo> data2Map = new ArrayList<>();
+//    @Autowired
+//    UserLoginMapper userLoginMapper;
+
+    public static HelloController helloController;
+
+    @PostConstruct
+    public void init() {
+        System.out.println("PostConstruct>>>>>>>>>>>>>>>>>>>>>>>>>");
+        helloController = this;
+        sendAjaxInfo=configBeanValue.sendPostUrl;
+    }
+
+
+//    public static boolean SaveInfo(List<TV> tvList) {
+//        if (tvList.size() == 0) {
+//            return false;
+//        }
+////        List<TV> tvList=new ArrayList<>();
+////        float d=8;
+////        TV tv = new TV("TV20030_820",simpleDateFormat.format(new Date()),d,1);
+////        tvList.add(tv);
+//        for (TV tv : tvList) {
+//            try {
+//                helloController.userLoginMapper.add(tv);
+//            } catch (Exception d) {
+//            }
+//        }
+//        try {
+//            Save2FRedis(tvList);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+////        }
+//        return true;
+//    }
+
+    /**
+     * 保存数据到REDIS
+     *
+     * @param para
+     * @return
+     * @throws Exception
+     */
+    public static String Save2FRedis(List<TV> para) throws Exception {
+        for (TV tv : para) {
+            try {
+                String str = helloController.redisClient.opsForValue().get(tv.getDT());
+                List<RedisValue> tv1 = JSON.parseObject(str, List.class);
+                if (tv1.size() > 5) {
+                    tv1.remove(0);
+                }
+                RedisValue redisValue = new RedisValue(simpleDateFormat.parse(tv.getDT()), String.valueOf(tv.getVAL()));
+                tv1.add(redisValue);
+                helloController.redisClient.opsForValue().set(tv.getTable(), JSONObject.toJSONString(tv1));
+            } catch (Exception s) {
+            }
+        }
+        return "success";
+    }
+
+//
+//    public void channelRead(ChannelHandlerContext ctx, List list) {
+//
+//        helloController.userLoginMapper.add(list); // 4. 使用
+//
+//    }
+
+
+
+    public static void StartCapture() {
+//        helloController = this;
+        String ss = helloController.configBeanValue.sendPostUrl;
+        senPost= helloController.configBeanValue.sendPostUrl;
+        PackDealImpl dataLimit = new PackDealImpl();//IniProtocols
+        dataLimit.IniProtocols(helloController.configBeanValue.baosight_configxml);
+        //Endpoint.publish("http://"+configBeanValue.baosight_ip+":"+configBeanValue.baosight_Port+"/UserServiceImpl/dao?wsdl", new UserServiceImpl());
+        //System.out.println("启动并发布webservice远程服务，服务发布成功....");
+        try {
+            SaveDataInfo();
+            IniLimit();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        SimpleServer.main();
+    }
+
+    /**
+     * 将datainfo的信息读取到内存中
+     *
+     * @throws ParseException
+     */
+    public static void SaveDataInfo() throws ParseException {
+        List<DataInfo> dataInfos = new ArrayList<>();
+        File f = new File(helloController.configBeanValue.baosight_configxml);
+        SAXReader reader = new SAXReader();
+        Document document = null;
+        try {                                 //D:\baoxin\project\nettySoket\src\main\java\com\example\netty\netty\Socket\Parsing\DataDeal.java
+            document = reader.read(f);
+        } catch (Exception ss) {
+            System.out.printf(String.valueOf(ss));
+        }
+        //获取文档根节点
+        Element root1 = document.getRootElement();
+        Element Protocols = root1.element("Protocols");
+        Element Root = Protocols.element("BaoGang");
+        Element SiteElement = Root.element("DataInfo");
+        for (Iterator iterator = SiteElement.elementIterator(); iterator.hasNext(); ) {
+            Element sub = (Element) iterator.next();
+            DataInfo dataInfo = new DataInfo(Integer.parseInt(sub.attributeValue("tagid")), sub.attributeValue("deviceInfo"), Integer.parseInt(sub.attributeValue("nodeId")));
+            data2Map.add(dataInfo);
+        }
+
+
+
+    }
+
+    public static DataInfo findDateInfo(String deviceInfo) {
+        List<DataInfo> collect = data2Map.stream().filter((DataInfo d) -> d.getDeviceInfo().contains(deviceInfo)).collect(Collectors.toList());
+        if (collect.size() != 0) {
+            return collect.get(0);
+        } else {
+            return new DataInfo();
+        }
+    }
+
+    public List ObjectToList(Object obj) {
+        List<String> result = new ArrayList<>();
+        if (obj instanceof ArrayList<?>) {
+            for (Object o : (List<?>) obj) {
+                result.add(String.class.cast(o));
+            }
+        }
+        return result;
+    }
+
+    public String list2xml(List<DataInfo> treeNodes) {
+        StringBuffer xmlnodes = new StringBuffer();
+        if (treeNodes != null && treeNodes.size() > 0) {
+            xmlnodes.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+            xmlnodes.append("<DataInfo>");
+            for (int i = 0; i < treeNodes.size(); i++) {
+                DataInfo node = treeNodes.get(i);
+                xmlnodes.append("<node nodeId='" + node.getNodeId() + "' tagid='" + node.getTagId()
+                        + "' deviceInfo='" + node.getDeviceInfo() + "'></node>");
+            }
+            xmlnodes.append("</DataInfo>");
+        }
+
+        return xmlnodes.toString();
+    }
+
+    //@Scheduled(fixedRate = 30000)
+//    public void cqw() {
+//        // 创建动态客户端
+//        JaxWsDynamicClientFactory dcf = JaxWsDynamicClientFactory.newInstance();
+//        Client client = dcf.createClient("http://" + configBeanValue.baosight_ip + ":" + configBeanValue.baosight_Port + "/UserServiceImpl/dao?wsdl");
+//        Object[] objects = new Object[0];
+//        try {
+//            //按照各自的文档传入参数
+//            objects = client.invoke("getBaoGang", "");
+//            //  JSONObject.parse(objects[0].toString())
+//            Object header = ((ArrayList) objects[0]).get(0);
+//            String aa = ((String) header).substring(0, ((String) header).indexOf("$"));
+//            String bb = ((String) header).substring(((String) header).indexOf("$")+1);
+//            String substring = bb.substring(bb.indexOf("][")+1);
+//            if (!checkInfoData(aa)){
+//                return;
+//            }
+//            JSONArray objects1 =JSONObject.parseArray(substring);
+//            for (int i = 0; i < objects1.size(); i++) {
+//                String vt = objects1.get(i).toString();
+//                String[] split = vt.split(",");
+//                Float val = Float.valueOf(0);
+//                if (split[2] != null || !split[2].equals("")) {
+//                    val = Float.valueOf(split[2]);
+//                }
+//                VT vt1 = new VT(simpleDateFormat.parse(split[4].replace(".", "").replace("\r\n", "")), Integer.parseInt(split[3]));
+//                //String sql = "SELECT * from DataInfo WHERE DEVICEINFO like '%" + split[1] + "%'";
+//                String sss = "%4022051501%";
+////                String sql = "SELECT * from DataInfo WHERE DEVICEINFO like '%" + split[1] + "%'";
+////                vtService.getDataInfo(split[1])
+////                List<Map<String, Object>> maps = jdbcTemplate.queryForList(sql);
+//                List<Map<String,String>> map= vtService.getDataInfo("%" + split[1] + "%");
+//                if (map.size()==0) {
+//                    continue;
+//                }
+//                String table = "TV" + String.valueOf(map.get(0).get("NODEID")) + "_" + String.valueOf(map.get(0).get("TAGID"));
+//                System.out.println("TABLE:!!!!!!!!!!!" + table);
+////                String tableSql = "CREATE TABLE IF NOT EXISTS `" + table + "`  (\n" +
+////                        "  `DT` datetime NOT NULL,\n" +
+////                        "  `VAL` float(255, 0) NULL DEFAULT NULL,\n" +
+////                        "  `STATUS` int(255) NOT NULL\n" +
+////                        ")";
+////                System.out.printf(tableSql);
+////                jdbcTemplate.execute(tableSql);
+//                List<Map<String, String>> newTable = vtService.createNewTable(table);
+//                if (Integer.parseInt(String.valueOf(newTable.get(0).get("NUM")))==0){
+//                    vtService.cqw(table);//创建表
+//                }
+//                int i1 = vtService.create(table, "'"+split[4].replace(".","")+"'", val, Integer.parseInt(split[3]));
+//                Jedis redisConnect = this.redisConnect.getRedisConnect();
+//                redisConnect.set(table, String.valueOf(val));
+//                redisConnect.expire(table,7200);
+//                System.out.println("插入结果::" + i1);
+////                String insertTable = "INSERT INTO `" + table + "` (`DT`, `VAL`, `STATUS`) VALUES (?, ?, ?);";
+////                jdbcTemplate.update(insertTable, simpleDateFormat.parse(split[4].replace(".", "").replace("\r\n", "")), val, Integer.parseInt(split[3]));
+//            }
+//            System.out.println("返回数据:" + JSONObject.toJSONString(objects[0]));
+//        } catch (java.lang.Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    public boolean checkInfoData(String Datastr) {
+        PackDealImpl dataLimit = new PackDealImpl();//IniProtocols
+        dataLimit.IniProtocols(configBeanValue.baosight_configxml);
+        //string str_datapart = Datastr.Substring(6, i_senddatal);
+        //AddDataDic(str_datapart);
+        String cn = PackDealImpl.GetCN(Datastr);
+        String qn = Datastr.substring(Datastr.indexOf("QN=") + 3, Datastr.lastIndexOf("&&"));
+        String st = PackDealImpl.GetStieType(Datastr);
+        //生成应答报文
+        String rstr = "";
+        rstr += "ST=91;";
+        rstr += "CN=" + cn + ";";
+        rstr += "CP=&&";
+        rstr += "QN=" + qn;
+        rstr += "&&";
+        CRC16 crc = new CRC16();//crc可以读取出该类中高位表和低位表
+        String crccode = Integer.toHexString(crc.CalculateCrc16(rstr.getBytes(StandardCharsets.UTF_8)));
+        //String l = PackDealImpl.padLeft(String.valueOf(rstr.length()),4,'0');
+        String l = String.format("%04d", rstr.length());
+        rstr = C_HeaderChar + l + rstr + crccode.toUpperCase();
+        String n = Datastr.substring(Datastr.length() - 5, Datastr.length() - 1);
+        if (Datastr.contains(rstr)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    @RequestMapping("index")
+    public String index(HashMap<String, Object> map, Model model,String ReceivePortName) throws UnknownHostException, InterruptedException {
+        if (ReceivePortName==null){
+            model.addAttribute("infoList", infoListShow);//接收数据
+        }else {
+            model.addAttribute( "infoList", findMapContainKey2Value(infoListShow,ReceivePortName));
+        }
+        model.addAttribute("mapPointInfo", mapPointInfo);//站点信息
+        System.out.printf(list.size() + "");
+        return "index";
+    }
+
+
+    public Map<String,List<Map>> findMapContainKey2Value(Map<String,List<Map>> stringListMap,String likeKey){
+        if (likeKey.equals("")){
+            return stringListMap;
+        }
+        Map<String,List<Map>> mapList=new HashMap<>();
+        List<String> list=new ArrayList<>();
+        PackDealImpl.ht_site.forEach((key,value)->{
+            if (String.valueOf(value).contains(likeKey)){
+                list.add(String.valueOf(key));
+            }
+        });
+        for (Map.Entry<String, List<Map>> entry : stringListMap.entrySet()){
+            if (list.contains(entry.getKey())){
+                mapList.put(entry.getKey(),entry.getValue());
+            }
+        }
+        return mapList;
+    }
+
+    /**
+     * 添加采集站点信息
+     * @param port
+     * @param name
+     * @return
+     *
+     *
+     */
+    @RequestMapping(value = "AddPointInfo",method = RequestMethod.POST)
+    public void AddPointInfo(@RequestParam("port") String port,@RequestParam("name") String name) {
+        if (isNumeric(port)){
+            ThreadOpenPort t=new ThreadOpenPort();
+            t.setPort(port);
+            t.setPortName(name);
+            new Thread(t).start();
+        }
+    }
+
+    /**
+     * 利用正则表达式判断字符串是否是数字
+     * @param str
+     * @return
+     */
+    public boolean isNumeric(String str){
+        Pattern pattern = Pattern.compile("[0-9]*");
+        Matcher isNum = pattern.matcher(str);
+        if( !isNum.matches() ){
+            return false;
+        }
+        return true;
+    }
+
+
+    public void addInfo(Info info) {
+        System.out.printf("info添加！！");
+        list.add(info);
+        System.out.printf("" + list.size());
+    }
+
+    @Autowired
+    private StringRedisTemplate redisClient1;
+
+    @RequestMapping("/point")
+    public String point(Model model) {
+//        1.测点名称
+//        2.测点位置
+//        3.测定类型
+        ValueOperations<String, String> redisConnect1 = redisClient.opsForValue();
+        //redisConnect1.get("baosight");
+        model.addAttribute("name", redisConnect1.get("name"));
+        model.addAttribute("address", redisConnect1.get("address"));
+        model.addAttribute("type", redisConnect1.get("type"));
+        model.addAttribute("pointInfo", "http://10.246.8.231/ENVP/web/JCZD0402?nodeId=" + redisConnect1.get("pointInfo"));
+        model.addAttribute("pointHistoryInfo", "http://10.246.8.231/ENVP/web/JCSJ02?nodeId=" + redisConnect1.get("pointInfo"));
+        model.addAttribute("HistoryCompareInfo", "http://10.246.8.231/ENVP/web/JCSJ05?nodeId=" + redisConnect1.get("pointInfo"));
+        model.addAttribute("StationFactorComparison", "http://10.246.8.231/ENVP/web/JCSJ04?nodeId=" + redisConnect1.get("pointInfo"));
+        model.addAttribute("SameFactorComparison", "http://10.246.8.231/ENVP/web/JCSJ03?nodeId=" + redisConnect1.get("pointInfo"));
+        model.addAttribute("jcData", "http://10.246.8.231/ENVP/web/JCSJ01?nodeId=" + redisConnect1.get("pointInfo"));
+//        String Observation="测点名称"+
+        return "Point";
+    }
+
+    /**
+     * 判断是否为空
+     */
+
+
+}
